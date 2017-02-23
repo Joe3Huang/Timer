@@ -1,10 +1,7 @@
-My iteration 1 has been checked and i have upgraded the workPlan and ProcessImprovementProposal files.
-Please check them.
 
-The whole product is in 'FinalProduct/assignment2/www' diectory.
+
+The whole product is in 'FinalProduc/www' diectory.
 
 Please run 'node index.js' in node js terminal under the '../FinalProduct/assignment2' directory
-
-
 
 and access 'localhost:3000' through browser.
