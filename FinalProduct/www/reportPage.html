@@ -1,0 +1,25 @@
+
+<button ng-click="generateReport()">Generate Monthly Report</button>
+<button ng-click="save()">Save File</button>
+<input type="file" on-read-file="readFile($fileContent)" />
+<table class="table col-sm-12">
+	<tr>
+		<th>Phase</th>
+		<th>Project</th>
+		<th>Tag</th>
+		<th>Start Time</th>
+		<th>Interrupt Time</th>
+		<th>Stop Time</th>
+		<th>Delta Time</th>
+	</tr>
+	<tr  ng-repeat="item in theModel.report.reportArray">
+		<td>{{item.phase}}</td>
+		<td>{{item.project.name}}</td>
+		<td>{{item.tag.name}}</td>
+		<td>{{item.startTime | date:'yyyy-MM-dd HH:mm'}}</td>
+		<td>{{item.interruptTime}}</td>
+		<td>{{item.stopTime | date:'yyyy-MM-dd HH:mm'}}</td>
+		<td>{{item.deltaTime}}</td>
+	</tr>
+</table>	
+

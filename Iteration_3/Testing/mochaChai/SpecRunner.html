@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+  Mocha setups and describes test suites and Chai provides convenient helpers to perform all kinds of assertions against your JavaScript code.
+  
+  in a browser context
+
+  http://chaijs.com/
+  https://github.com/mochajs/mocha
+  https://mochajs.org/
+-->
+
+  <meta charset="utf-8">
+  <title>Mocha+Chai</title>
+  <link href="lib/mocha-2.4.5/mocha.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="mocha"><p><a href=".">Testing ...</a></p></div>
+
+  <!-- This will provide chai as a global object -->
+  <script src="lib/chai-3.5.0/chai.js"></script>
+  
+  <script src="lib/mocha-2.4.5/mocha.js"></script>
+
+  <!-- provide source code -->
+  <script src="src/Entry.js"></script>
+  <script src="src/Project.js"></script>
+<!--   <script src="src/Timer.js"></script>
+  <script src="src/Clock.js"></script> -->
+  <script src="src/Model.js"></script>
+  <!-- to use the BDD interface before loading the test scripts, since we'll be using Chai's BDD Expect API -->
+  <script>mocha.setup('bdd');</script>
+  
+  <!-- provide testing code -->
+  <script src="spec/ProjectSpec.js"></script>  
+ 
+  <script>
+    var expect = chai.expect;
+    window.onload = function () {
+      mocha.run();    
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "timerserver",
+  "version": "1.0.0",
+  "description": "\u001b\u001b[A\u001b[C\u001b[C\u001b[C\u001b[B\u001b[A\u001b[B\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[Ctesing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe",
+  "license": "ISC",
+  "dependencies": {
+    "mime": "^1.3.4",
+  }
+}

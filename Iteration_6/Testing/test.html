@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Read File Testing</title>
+	<script src="ReadFileDirective.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid " ng-controller = "myController">
+		<input type="file" on-read-file="readFile($fileContent)" />
+	</div>
+</body>
+<script>
+	var myApp = angular.module('myApp', []);
+	myApp.directive('onReadFile',ReadFile);
+	myApp.controller('myController',['$scope', function($scope){
+	    $scope.readFile = function($fileContent)
+	    {
+	    	console.log($fileContent);
+	    };
+	}]);
+</script>
+</html>

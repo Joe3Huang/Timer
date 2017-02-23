@@ -1,0 +1,110 @@
+
+
+<div class="col-sm-12 input-group input-group-lg vertical-align" id="inputBar">
+	<div class="col-sm-4" >
+		<input type="text" class="form-control" ng-model ="entryData.title" placeholder="What are you working on?"/ >
+	</div>
+	<div class = "col-sm-2">	
+			<input type="text" class="dropdown-toggle form-control" data-toggle="dropdown" ng-model ="entryData.project.name" name="projectName" placeholder="Add Project"/>
+		<div class="dropdown-menu" role="menu">
+		    <div class="input-group input-group-lg">
+				<ul class="scrollable-menu">
+				  <li ng-repeat="item in theModel.allMyProjects">
+				    <label ng-click="projectSelect(item)" for="{{item.name}}">{{item.name}}</label>
+				  </li>
+				</ul>
+			<button type="button" class="btn" ng-click="createProjectClick(entryData.project.name)">Create</button>
+			</div>
+		</div>		
+	</div>
+	<div class = "col-sm-2">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Add Tag<span class="caret"></span></button>
+			<div class="dropdown-menu" role="menu">
+		    <!-- <div class="input-group input-group-lg"> -->
+			<input type="text" ng-model ="entryData.tag.name"  name="tagName" placeholder="Find Tag?"/>
+		    <!-- </div> -->
+				<ul class="scrollable-menu">
+				  <li ng-repeat="item in theModel.allMyTags">
+				    <label ng-click="tagSelect(item)">{{item.name}}</label>
+				  </li>
+				</ul>
+			<button type="button" class="btn" ng-click="createTagClick(entryData.tag.name)">Create</button>
+			</div>
+		</div>	
+	</div>
+	<div class="col-sm-2">
+		<h3 class="text-danger">{{hours}}:{{minutes}}:{{seconds}}</h3>
+	</div>
+	<div class = "col-sm-2 btn-toolbar" role = "toolbar">
+		<div class = " btn-group btn-group-lg">
+			<button type="button" class="btn btn-default" ng-click="startClick()" id="start">Start</button>
+			<button type="button" class="btn btn-default" ng-click="pauseClick()" id="pause">Pause</button>
+			<button type="button" class="btn btn-default" ng-click="stopClick()" id="stop">Stop</button> 
+		</div>		
+	</div>
+ </div>	
+
+	
+
+		
+<table class="table col-sm-12">
+	<tr>
+		<th></th>
+		<th>Phase</th>
+		<th>Project</th>
+		<th>Tag</th>
+		<th>Start Time</th>
+		<th>Interrupt Time</th>
+		<th>Stop Time</th>
+		<th>Delta Time</th>
+	</tr>
+	<tr ng-repeat="(indexOfEntry,item) in theModel.allMyEntries | reverse">
+		<td>
+			<input type="button" ng-click="selfDelete($index)" value="delete" />
+		</td>
+	
+		<td>		
+			<input class=" inputEntry" type="text" ng-model="item.phase" value ="{{ item.phase }}"/>
+		</td>
+
+		<td class="col-sm-2">
+			<div class="inputEntry">
+				<input class="inputEntry dropdown-toggle" data-toggle="dropdown" type="text" value ="{{item.project.name}}" placeholder="project">
+				<div class="dropdown-menu scrollable-menu" role="menu">
+					<ul>
+						<li ng-repeat="(indexOfProject,item) in theModel.allMyProjects">
+						<label ng-click="resetEntryProject(indexOfEntry,item)">{{item.name}}</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</td>
+		
+		<td class="col-sm-2">
+			<div class="inputEntry">
+				<input class="inputEntry dropdown-toggle" data-toggle="dropdown" type="text" value="{{item.tag.name}}" ng-model="item.tag.name" placeholder="tag">
+				<div class="dropdown-menu scrollable-menu" role="menu">
+					<ul>
+						<li ng-repeat="item in theModel.allMyTags">
+							<label ng-click="resetEntryTag(indexOfEntry,item)">{{item.name}}</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</td>
+		<!--    -->
+		<td class="col-sm-2"> 
+			<input class="inputEntry" type="datetime-local" ng-model="item.startTimeShow" ng-change="item.changeStartTimeHandler(item.startTimeShow)" placeholder="dd-MM-yyyyTHH:mm:ss" min="01-01-2001T00:00:00" max="31-12-2050T00:00:00" required />	
+		</td>
+		<td class="col-sm-1">
+			<input class="inputEntry" type ="text" value ="{{item.interruptTime}}" ng-model="item.interruptTime" placeholder="interruptTime"/>
+		</td>
+		<td class="col-sm-2">
+			<input class="inputEntry" type="datetime-local" ng-model="item.stopTimeShow" ng-change="item.changeStopTimeHandler(item.stopTimeShow)"placeholder="dd-MM-yyyyTHH:mm:ss" min="01-01-2001T00:00:00" max="31-12-2050T00:00:00" required />
+		</td>
+		<td class="col-sm-1">
+			<input class="inputEntry" type ="text" ng-model="item.deltaTime" value ="{{item.deltaTime}}" placeholder="item.deltaTime"/>
+		</td>
+	</tr>
+</table>

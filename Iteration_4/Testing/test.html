@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Save File Testing</title>
+	<script src="SaveFile.js"></script> 
+</head>
+
+<body>
+	<button onclick="myFunction()">Save File</button>
+</body>
+<script>
+	let save = new SaveFile();
+	let myFunction = function()
+	{
+		save.doSave("This is a tesing file");
+	}
+
+</script>
+</html>

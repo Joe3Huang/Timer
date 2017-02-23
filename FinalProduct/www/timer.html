@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-route.min.js"></script>
+<!-- 	<script src="lib/angular-sanitize.min.js"></script> -->
+	<script src="lib/js/jquery-3.1.1.min.js"></script>
+	<script src="lib/js/bootstrap.min.js"></script>
+	<script src="angularComponents/ReadFileDirective.js"></script>
+	
+ 	<script src="angularComponents/Module.js"></script>
+ 	<!-- <script src="angularComponents/ClockService.js"></script> -->
+	<script src="angularComponents/Controller.js"></script>
+	<script src="classes/Report.js"></script>
+	<script src="classes/SaveFile.js"></script> 
+	<script src="classes/Project.js"></script>
+	<script src="classes/Tag.js"></script>
+	<script src="classes/Entry.js"></script>
+	<script src="classes/Model.js"></script> 
+	<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+	 
+	<style>
+		body{
+			background:#f5f5f5;
+			min-width: 1600px;
+		}
+		#inputBar{
+            box-shadow: 0 1px 4px rgba(128,128,128,4);
+			border: 0;
+			border-radius: 0;
+		}
+		#inputBar input{
+			 border: 0;
+			 border-radius: 0;
+		 	 margin:0 ;
+		 	 padding: 0;
+
+		}
+		#start,#stop{
+			background: gray;
+			color:white;
+		}
+		.vertical-align
+		{
+			display: flex;
+			align-items: center;
+		}
+		.inputEntry
+		{
+			/*border: 0;
+			border-radius: 0;
+			width: 100%;*/
+			position: relative;
+			border: 0;
+			border-radius: 0;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+	
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid " ng-controller = "myController">
+		<header>
+			<div class="row" >
+				<nav class="navbar navbar-inverse navbar-static-top">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <a class="navbar-brand" href="#">TimeTracker</a>
+				    </div>
+				    <ul class="nav navbar-nav">
+				      <li class="active"><a href="#main">Timer</a></li>
+				      <li><a href="#reportPage">Reports</a></li> 
+				      <li><a href="#projectPage">Project</a></li> 
+				    </ul>
+					<ul class="nav navbar-nav navbar-right">
+						<!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+					</ul>
+				  </div>
+				</nav>		
+			</div>
+		</header>
+		<div ng-view>
+				
+		</div>	
+    </div>
+    
+</body>
+</html>

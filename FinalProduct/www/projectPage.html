@@ -1,0 +1,27 @@
+
+<div ng-repeat="pro in theModel.allMyProjects">
+	<h1>Project : {{pro.name}}</h1>
+	<table class="table col-sm-12" >
+		<tr>
+			<th>Phase</th>
+			<!-- <th>Project</th> -->
+			<th>Tag</th>
+			<th>Start Time</th>
+			<th>Interrupt Time</th>
+			<th>Stop Time</th>
+			<th>Delta Time</th>
+		</tr>
+		<tr  ng-repeat="item in theModel.allMyEntries">
+
+			<td ng-if="item.project.name == pro.name">{{item.phase}}</td>
+			<td ng-if="item.project.name == pro.name">{{item.tag.name}}</td>
+			<td ng-if="item.project.name == pro.name">{{item.startTime | date:'yyyy-MM-dd HH:mm'}}</td>
+			<td ng-if="item.project.name == pro.name">{{item.interruptTime}}</td>
+			<td ng-if="item.project.name == pro.name">{{item.stopTime | date:'yyyy-MM-dd HH:mm'}}</td>
+			<td ng-if="item.project.name == pro.name">{{item.deltaTime}}</td>
+		</tr>
+	</table>
+</div>
+
+
+
